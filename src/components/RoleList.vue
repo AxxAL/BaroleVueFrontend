@@ -1,10 +1,10 @@
 <script>
 export default {
-    data() {
-        return {
-            roles: null
-        }
-    },
+  data() {
+    return {
+      roles: Array
+    }
+  },
 
   created() {
     this.fetchRoles();
@@ -14,8 +14,7 @@ export default {
     async fetchRoles() {
       await fetch("https://localhost:7109/api/v1/role/all")
         .then(async response => {
-            this.roles = await response.json();
-            console.log(this.roles);
+          this.roles = await response.json();
         })
         .catch(error => console.error(error));
     }
@@ -24,13 +23,9 @@ export default {
 </script>
 
 <template>
-  <main>
-        <ul>
-            <h2>Role list:</h2>
-            <li v-for="role in roles" :key="role.Id">
-                Title: {{ role.title }}<br>
-                Job: {{ role.barotraumaJob }}
-            </li>
-        </ul>
-  </main>
+  <div class="row">
+    <router-link v-for="role in roles" :key="role.id" :to="`/role/${ role.id }`" class="col-2 text-center text-decoration-none">
+      {{ role.title }}
+    </router-link>
+  </div>
 </template>

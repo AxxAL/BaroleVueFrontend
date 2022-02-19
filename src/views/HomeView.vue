@@ -1,14 +1,11 @@
 <script>
-import RoleList from "../components/RoleList.vue"
 export default {
-  components: {
-    RoleList
-  }
+  
 }
 </script>
 
 <template>
-  <RoleList />
+  <h1 class="text-center">Welcome to Barole!</h1>
 </template>
 
 <style>

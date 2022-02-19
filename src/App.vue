@@ -1,21 +1,20 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router"
-import HelloWorld from "@/components/HelloWorld.vue"
+<script>
+import { RouterView } from "vue-router";
+import MainNavBar from "./components/MainNavBar.vue";
+
+export default {
+  components: {
+    RouterView,
+    MainNavBar
+  },
+}
 </script>
 
 <template>
   <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
+    <MainNavBar />
   </header>
-
-  <RouterView />
+  <main class="container pt-4 pb-4">
+    <RouterView />
+  </main>
 </template>
-
-<style>
-
-</style>
