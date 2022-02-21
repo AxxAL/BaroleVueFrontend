@@ -5,7 +5,8 @@ export default {
 </script>
 
 <template>
-  <h1 class="text-center">Welcome to Barole!</h1>
+  <p class="fs-1 text-center">Welcome to Barole!</p>
+  <p class="fs-5 text-center">A custom game solution for <a class="link-primary" href="https://barotraumagame.com/" target="_blank" rel="noopener noreferrer">Barotrauma</a>.</p>
 </template>
 
 <style>

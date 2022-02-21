@@ -11,12 +11,15 @@
           <router-link class="nav-link" to="/">Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/role/all">Roles </router-link>
+          <router-link class="nav-link" to="/role/all">Roles</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/about">About</router-link>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" v-model="query" placeholder="Search roles">
-        <button class="btn btn-outline-success" @click="searchApi">Search</button>
+        <input class="form-control me-2" v-model="query" placeholder="Search roles by title">
+        <button class="btn btn-outline-success" @click="searchApi"><i class="bi bi-search"></i></button>
       </form>
     </div>
   </div>
@@ -35,10 +38,10 @@ export default {
     async searchApi(event) {
       event.preventDefault();
 
-      await fetch(`https://localhost:7109/api/v1/role/${this.query}`)
+      await fetch(`https://localhost:7109/api/v1/role/titleSearch/${this.query}`)
         .then(async result => {
           result = await result.json();
-          this.$router.push({ name: "detailed role", params: { roleId: result.id } });
+          this.$router.push({ name: "detailed role", params: { roleId: result[0].id } });
         })
         .catch(() => {
           this.$router.push({ name: "not found" })
