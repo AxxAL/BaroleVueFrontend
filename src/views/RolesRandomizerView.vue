@@ -1,19 +1,17 @@
 <template>
-    <div class="align-self-center">
-        <label for="sampleSizeInput">Sample size</label>
-        <input type="number" name="sampleSizeInput" v-model="amountOfRolesToRandomize">
-        <button class="btn btn-primary" @click="shuffleRoles">Randomize!</button>
-    </div>
-    <RoleListVue :roles="randomizedRoles" />
+    <RoleList :roles="randomizedRoles"/>
+    <label class="row text-center" for="sampleSizeInput">Sample size</label>
+    <input class="row mb-1" type="number" name="sampleSizeInput" v-model="amountOfRolesToRandomize">
+    <button class="btn btn-primary row" @click="shuffleRoles">Randomize!</button>
 </template>
 
 <script>
-import RoleListVue from "../components/RoleList.vue";
+import RoleList from "../components/RoleList.vue";
 import { sampleSize } from "lodash";
 
 export default {
     components: {
-        RoleListVue
+        RoleList
     },
 
     data() {

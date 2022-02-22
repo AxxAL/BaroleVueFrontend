@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea type="text" id="json"></textarea>
+    <button onclick="DO_IT()">send</button>
+    
+</body>
+</html>
+
+<script>
+function DO_IT() {
+    const oldJson = JSON.parse(document.getElementById("json").value);
+    
+    const newJson = JSON.stringify({
+        title: oldJson.title,
+        barotraumaJob: oldJson.job,
+        goal: oldJson.goal,
+        winCondition: oldJson.winCondition,
+        additonalInfo: oldJson.additonalInfo,
+        tips: oldJson.tips
+    });
+    console.clear();
+    console.log(newJson);
+}
+</script>
