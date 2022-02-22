@@ -31,6 +31,7 @@
 
 <script>
 import LoadingBarVue from "../components/LoadingBar.vue";
+
 export default {
     components: {
         LoadingBarVue

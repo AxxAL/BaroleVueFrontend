@@ -5,6 +5,7 @@ import AboutView from "../views/AboutView.vue";
 import RoleListView from "../views/RoleListView.vue";
 import DetailedRoleView from "../views/DetailedRoleView.vue";
 import NotFoundView from "../views/errors/NotFoundView.vue";
+import RolesRandomizerView from "../views/RolesRandomizerView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,6 +24,11 @@ const router = createRouter({
             path: "/role/:roleId",
             name: "detailed role",
             component: DetailedRoleView
+        },
+        {
+            path: "/role/random",
+            name: "random roles",
+            component: RolesRandomizerView
         },
         {
             path: "/about",
