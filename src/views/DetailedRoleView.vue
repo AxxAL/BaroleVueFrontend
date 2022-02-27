@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import LoadingBarVue from "../components/LoadingBar.vue";
+import LoadingBar from "../components/LoadingBar.vue";
 
 export default {
     components: {
-        LoadingBarVue
+        LoadingBar
     },
 
     data() {
@@ -44,7 +44,7 @@ export default {
         };
     },
 
-    created() {
+    mounted() {
         this.searchApi();
     },
 

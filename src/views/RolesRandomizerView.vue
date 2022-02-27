@@ -1,30 +1,38 @@
 <template>
-    <RoleList :roles="randomizedRoles"/>
-    <div class="col">
-        <label class="row" for="sampleSizeInput">Sample size</label>
-        <input class="row" type="number" name="sampleSizeInput" v-model="amountOfRolesToRandomize">
-        <button class="row btn btn-primary" @click="shuffleRoles">Randomize!</button>
+    <LoadingBarVue v-if="!recievedData"/>
+    <div class="row d-flex justify-content-center" v-else>
+        <div v-for="role in randomizedRoles" :key="role.id" class="col-sm-3 mb-2 fs-6 text-center text-decoration-none">
+            <RoleCard :role="role"/>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <label class="opacity-75" for="sampleSizeInput">Sample size:</label>
+        <input class="mb-2" type="number" name="sampleSizeInput" v-model="amountOfRolesToRandomize">
+        <button class=" btn btn-primary" @click="shuffleRoles">Randomize!</button>
     </div>
 </template>
 
 <script>
-import RoleList from "../components/RoleList.vue";
 import { sampleSize } from "lodash";
+import LoadingBar from "../components/LoadingBar.vue";
+import RoleCard from "../components/RoleCard.vue";
 
 export default {
     components: {
-        RoleList
+        LoadingBar,
+        RoleCard
     },
 
     data() {
         return {
             randomizedRoles: [],
             amountOfRolesToRandomize: 3,
-            allRoles: Array
+            allRoles: Array,
+            recievedData: false
         }
     },
 
-    created() {
+    mounted() {
         this.fetchRoles();
     },
 
