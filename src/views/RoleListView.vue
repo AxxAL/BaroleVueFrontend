@@ -27,7 +27,7 @@ export default {
 
   methods: {
     async fetchRoles() {
-      await fetch("https://localhost:7109/api/v1/role/all")
+      await fetch("https://baroleapi.axxal.net/api/v1/role/all")
         .then(async response => {
           this.rolesArray = await response.json();
           this.recievedData = true;

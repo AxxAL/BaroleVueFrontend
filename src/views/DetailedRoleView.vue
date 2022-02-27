@@ -51,7 +51,7 @@ export default {
     methods: {
         async searchApi() {
             const roleId = this.$route.params.roleId;
-            await fetch(`https://localhost:7109/api/v1/role/${roleId}`)
+            await fetch(`https://baroleapi.axxal.net/api/v1/role/${roleId}`)
                 .then(async response => {
                     this.role = await response.json();
                     this.recievedData = true;

@@ -1,8 +1,10 @@
 <template>
     <RoleList :roles="randomizedRoles"/>
-    <label class="row text-center" for="sampleSizeInput">Sample size</label>
-    <input class="row mb-1" type="number" name="sampleSizeInput" v-model="amountOfRolesToRandomize">
-    <button class="btn btn-primary row" @click="shuffleRoles">Randomize!</button>
+    <div class="col">
+        <label class="row" for="sampleSizeInput">Sample size</label>
+        <input class="row" type="number" name="sampleSizeInput" v-model="amountOfRolesToRandomize">
+        <button class="row btn btn-primary" @click="shuffleRoles">Randomize!</button>
+    </div>
 </template>
 
 <script>
@@ -28,7 +30,7 @@ export default {
 
     methods: {
         async fetchRoles() {
-            await fetch("https://localhost:7109/api/v1/role/all")
+            await fetch("https://baroleapi.axxal.net/api/v1/role/all")
                 .then(async response => {
                     this.allRoles = await response.json();
                     this.recievedData = true;

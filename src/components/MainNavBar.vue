@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <router-link class="navbar-brand" to="/">Barole </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@ export default {
     async searchApi(event) {
       event.preventDefault();
 
-      await fetch(`https://localhost:7109/api/v1/role/titleSearch/${this.query}`)
+      await fetch(`https://baroleapi.axxal.net/api/v1/role/titleSearch/${this.query}`)
         .then(async result => {
           result = await result.json();
           this.$router.push({ name: "detailed role", params: { roleId: result[0].id } });
